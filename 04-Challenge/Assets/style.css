@@ -6,11 +6,11 @@
     font-family: 'Noto Serif Teluga', Noto Serif Teluga;
 }
 body{
-    background: #4d0264;
+    background: #cdf4f9;
 }
 ::selection{
-    color: #fff;
-    background: #4d0264;
+    color: rgb(12, 11, 11);
+    background: #cdf4f9;
 }
 .start_btn,
 .info_box,
@@ -34,7 +34,7 @@ body{
 .start_btn button{
     font-size: 25px;
     font-weight: 500;
-    color: #007bff;
+    color: #050606;
     padding: 15px 30px;
     outline: none;
     border: none;
@@ -71,7 +71,7 @@ body{
 }
 .info_box .info-list .info span{
     font-weight: 600;
-    color: #c28cd3;
+    color: #0d0a0f;
 }
 .info_box .buttons{
     height: 60px;
@@ -79,7 +79,7 @@ body{
     align-items: center;
     justify-content: flex-end;
     padding: 0 30px;
-    border-top: 1px solid lightgrey;
+    border-top: 1px solid rgb(18, 17, 17);
 }
 .info_box .buttons button{
     margin: 0 5px;
@@ -91,12 +91,12 @@ body{
     border: none;
     outline: none;
     border-radius: 5px;
-    border: 1px solid #c28cd3;
+    border: 1px solid #070707;
     transition: all 0.3s ease;
 }
 .quiz_box{
     width: 550px;
-    background: #fff;
+    background: rgb(19, 18, 18);
     border-radius: 5px;
     transform: translate(-50%, -50%) scale(0.9);
     opacity: 0;
@@ -108,7 +108,7 @@ body{
     z-index: 2;
     height: 70px;
     padding: 0 30px;
-    background: #fff;
+    background: rgb(232, 225, 225);
     border-radius: 5px 5px 0 0;
     display: flex;
     align-items: center;
@@ -120,9 +120,9 @@ body{
     font-weight: 600;
 }
 .quiz_box header .timer{
-    color: #9804dc;
-    background: #cce5ff;
-    border: 1px solid #b8daff;
+    color: rgb(249, 242, 242);
+    background: #f5f6f8;
+    border: 1px solid #0c0c0d;
     height: 45px;
     padding: 0 8px;
     border-radius: 5px;
@@ -141,7 +141,7 @@ body{
     font-weight: 500;
     height: 30px;
     width: 45px;
-    color: #fff;
+    color: rgb(250, 244, 244);
     border-radius: 5px;
     line-height: 30px;
     text-align: center;
@@ -169,7 +169,7 @@ section .option_list{
     display: block;   
 }
 section .option_list .option{
-    background: rgb(179, 13, 240);
+    background: rgb(248, 242, 242)
     border: 1px solid #84c5fe;
     border-radius: 5px;
     padding: 8px 15px;
@@ -185,19 +185,19 @@ section .option_list .option:last-child{
     margin-bottom: 0px;
 }
 section .option_list .option:hover{
-    color: #5d0085;
-    background: #cce5ff;
-    border: 1px solid #b8daff;
+    color: #f4f2f5;
+    background: #0a0b0b;
+    border: 1px solid #b8e9ff;
 }
 section .option_list .option.correct{
-    color: #155724;
-    background: #d4edda;
-    border: 1px solid #c3e6cb;
+    color: #030404;
+    background: #12dc2d;
+    border: 1px solid #020202;
 }
 section .option_list .option.incorrect{
-    color: #331c72;
-    background: #f8d7da;
-    border: 1px solid #f5c6cb;
+    color: #050404;
+    background: #ef0505;
+    border: 1px solid #100c0c;
 }
 section .option_list .option.disabled{
     pointer-events: none;
@@ -229,7 +229,7 @@ footer{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-top: 1px solid lightgrey;
+    border-top: 1px solid rgb(244, 241, 241);
 }
 footer .total_que span{
     display: flex;
@@ -250,10 +250,10 @@ footer button{
     cursor: pointer;
     border: none;
     outline: none;
-    color: #fff;
+    color: rgb(2, 2, 2);
     border-radius: 5px;
-    background: #8559e5;
-    border: 1px solid #8559e5;
+    background: #f5f5f8;
+    border: 1px solid #0a0a0a;
     line-height: 10px;
     opacity: 0;
     pointer-events: none;
@@ -261,7 +261,7 @@ footer button{
     transition: all 0.3s ease;
 }
 footer button:hover{
-    background: #8559e5;
+    background: #f3f2f6;
 }
 footer button.show{
     opacity: 1;
@@ -284,7 +284,7 @@ footer button.show{
 }
 .result_box .icon{
     font-size: 100px;
-    color: #c28cd3;
+    color: #030304;
     margin-bottom: 10px;
 }
 .result_box .complete_text{
@@ -319,17 +319,17 @@ footer button.show{
     transition: all 0.3s ease;
 }
 .buttons button.restart{
-    color: gray;
+    color: rgb(6, 6, 6);
     background: white;
 }
 .buttons button.restart:hover{
-    background: gray;
+    background: rgb(251, 247, 247);
 }
 .buttons button.quit{
-    color: grey;
+    color: rgb(4, 3, 3);
     background: #fff;
 }
 .buttons button.quit:hover{
-    color: gray;
+    color: rgb(7, 6, 6);
     background: white;
 }
