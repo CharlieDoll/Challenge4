@@ -8,7 +8,18 @@
 body{
     background: #cdf4f9;
 }
-::selection{
+
+body h1{
+    background: white;
+    color: black;
+    box-sizing: border-box;
+    position: center;
+    padding-top: 50px;
+    font-size: xxx-large;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.selection{
     color: rgb(12, 11, 11);
     background: #cdf4f9;
 }
@@ -169,7 +180,7 @@ section .option_list{
     display: block;   
 }
 section .option_list .option{
-    background: rgb(248, 242, 242)
+    background:rgb(248, 242, 242)
     border: 1px solid #84c5fe;
     border-radius: 5px;
     padding: 8px 15px;
@@ -181,6 +192,7 @@ section .option_list .option{
     align-items: center;
     justify-content: space-between;
 }
+
 section .option_list .option:last-child{
     margin-bottom: 0px;
 }
@@ -273,7 +285,7 @@ footer button.show{
     border-radius: 5px;
     display: flex;
     padding: 25px 30px;
-    width: 450px;
+    width: 600px;
     align-items: center;
     flex-direction: column;
     justify-content: center;
@@ -307,8 +319,8 @@ footer button.show{
 }
 .result_box .buttons button{
     margin: 0 10px;
-    height: 45px;
-    padding: 0 20px;
+    height: 50px;
+    padding: 0 40px;
     font-size: 18px;
     font-weight: 500;
     cursor: pointer;
@@ -332,4 +344,13 @@ footer button.show{
 .buttons button.quit:hover{
     color: rgb(7, 6, 6);
     background: white;
+}
+label {
+    display: block;
+    font: 1rem 'Fira Sans', sans-serif;
+}
+input,
+label {
+    margin: .6rem 0;
+    justify-content: center;
 }

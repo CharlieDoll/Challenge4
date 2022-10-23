@@ -10,7 +10,8 @@ const time_line = document.querySelector("header .time_line");
 const timeText = document.querySelector(".timer .time_left_txt");
 const timeCount = document.querySelector(".timer .timer_sec");
 var ApplicantName = document.getElementById("App_name");
-var submitForm = document.getElementById("submit-form");
+var submitButton = document.getElementById("submit-Button");
+var score = document.getElementById("questionnaire_score");
 let totalTimeValue = 75;
 
 // start button
@@ -44,7 +45,7 @@ let widthValue = 0;
 const restart_quiz = result_box.querySelector(".buttons .restart");
 const quit_quiz = result_box.querySelector(".buttons .quit");
 
-// if restartQuiz button clicked
+// restart button
 restart_quiz.onclick = () => {
   quiz_box.classList.add("activeQuiz"); //show quiz box
   result_box.classList.remove("activeResult"); //hide result box
@@ -63,7 +64,7 @@ restart_quiz.onclick = () => {
   next_btn.classList.remove("show"); //hide the next button
 };
 
-// if quitQuiz button clicked
+// quit button
 quit_quiz.onclick = () => {
   window.location.reload(); //reload the current window
 };
@@ -71,31 +72,44 @@ quit_quiz.onclick = () => {
 const next_btn = document.querySelector("footer .next_btn");
 const bottom_ques_counter = document.querySelector("footer .total_que");
 
-// if Next Que button clicked
+// Next button
 next_btn.onclick = () => {
   if (que_count < questions.length - 1) {
-    //if question count is less than total question length
     que_count++; //increment the que_count value
     que_numb++; //increment the que_numb value
     showQuetions(que_count); //calling showQestions function
     queCounter(que_numb); //passing que_numb value to queCounter
-    // clearInterval(counter); //clear counter
-    // clearInterval(counterLine); //clear counterLine
-    // startTimer(timeValue); //calling startTimer function
     startTimerLine(widthValue); //calling startTimerLine function
     timeText.textContent = "Time Left"; //change the timeText to Time Left
     next_btn.classList.remove("show"); //hide the next button
   } else {
-    // clearInterval(counter); //clear counter
-    // clearInterval(counterLine); //clear counterLine
     showResult(); //calling showResult function
   }
 };
+// submit button
+submitButton.onclick = () => {
+  if (applicantName < score.length - 1) {
+    score++;
+    function savescore(score) {
+      var score = prompt("Enter name:");
+      console.log("applicantName + score");
+      button.addEventListener("click", savescore, applicantName);
 
-// getting questions and options from array
+      // 1. Add to list
+      score.push(questionnaire_score);
+
+      // 4. Save to local storage
+      localStorage.setItem(
+        applicantName,
+        questionnaire_score,
+        JSON.stringify(any)
+      );
+    }
+  }
+};
+// Q's array
 function showQuetions(index) {
   const que_text = document.querySelector(".que_text");
-  //creating a new span and div tag for question and option and passing the value using array index
   let que_tag =
     "<span>" +
     questions[index].numb +
@@ -115,74 +129,66 @@ function showQuetions(index) {
     '<div class="option"><span>' +
     questions[index].options[3] +
     "</span></div>";
-  que_text.innerHTML = que_tag; //adding new span tag inside que_tag
-  option_list.innerHTML = option_tag; //adding new div tag inside option_tag
+  que_text.innerHTML = que_tag;
+  option_list.innerHTML = option_tag;
 
   const option = option_list.querySelectorAll(".option");
-  // set onclick attribute to all available options
   for (i = 0; i < option.length; i++) {
     option[i].setAttribute("onclick", "optionSelected(this)");
   }
 }
 
-// creating the new div tags which for icons
+// new div tags
 let tickIconTag = '<div class="icon tick"><i class="fas fa-check"></i></div>';
 let crossIconTag = '<div class="icon cross"><i class="fas fa-times"></i></div>';
 
-//if user clicked on option
 function optionSelected(answer) {
-  let userAns = answer.textContent; //getting user selected option
-  let correcAns = questions[que_count].answer; //getting correct answer from array
-  const allOptions = option_list.children.length; //getting all option items
+  let userAns = answer.textContent;
+  let correcAns = questions[que_count].answer;
+  const allOptions = option_list.children.length;
 
-  //if user selected option is equal to array's correct answer
   if (userAns == correcAns) {
-    userScore += 1; //upgrading score value with 1
-    answer.classList.add("correct"); //adding green color to correct selected option
-    answer.insertAdjacentHTML("beforeend", tickIconTag); //adding tick icon to correct selected option
+    userScore += 1;
+    answer.insertAdjacentHTML("beforeend", tickIconTag);
     console.log("Correct Answer");
     console.log("Your correct answers = " + userScore);
   } else {
     totalTimeValue -= 5;
     timeCount.textContent = totalTimeValue;
-    answer.classList.add("incorrect"); //adding red color to correct selected option
-    answer.insertAdjacentHTML("beforeend", crossIconTag); //adding cross icon to correct selected option
+    answer.classList.add("incorrect");
+    answer.insertAdjacentHTML("beforeend", crossIconTag);
     console.log("Wrong Answer");
 
     for (i = 0; i < allOptions; i++) {
       if (option_list.children[i].textContent == correcAns) {
-        //if there is an option which is matched to an array answer
-        option_list.children[i].setAttribute("class", "option correct"); //adding green color to matched option
-        option_list.children[i].insertAdjacentHTML("beforeend", tickIconTag); //adding tick icon to matched option
+        option_list.children[i].setAttribute("class", "option correct");
+        option_list.children[i].insertAdjacentHTML("beforeend", tickIconTag);
         console.log("Auto selected correct answer.");
       }
     }
   }
 
   for (i = 0; i < allOptions; i++) {
-    option_list.children[i].classList.add("disabled"); //once user select an option then disabled all options
+    option_list.children[i].classList.add("disabled");
   }
 
-  next_btn.classList.add("show"); //show the next button if user selected any option
+  next_btn.classList.add("show");
 }
 
 function showResult() {
-  info_box.classList.remove("activeInfo"); //hide info box
-  quiz_box.classList.remove("activeQuiz"); //hide quiz box
-  result_box.classList.add("activeResult"); //show result box
+  info_box.classList.remove("activeInfo");
+  quiz_box.classList.remove("activeQuiz");
+  result_box.classList.add("activeResult");
   const scoreText = result_box.querySelector(".score_text");
   if (userScore > 3) {
-    // if user scored more than 3
-    //creating a new span tag and passing the user score number and total question number
     let scoreTag =
       "<span>and congrats! , You got <p>" +
       userScore +
       "</p> out of <p>" +
       questions.length +
       "</p></span>";
-    scoreText.innerHTML = scoreTag; //adding new span tag inside score_Text
+    scoreText.innerHTML = scoreTag;
   } else if (userScore > 1) {
-    // if user scored more than 1
     let scoreTag =
       "<span>and nice , You got <p>" +
       userScore +
@@ -191,7 +197,6 @@ function showResult() {
       "</p></span>";
     scoreText.innerHTML = scoreTag;
   } else {
-    // if user scored less than 1
     let scoreTag =
       "<span>and sorry , You got only <p>" +
       userScore +
@@ -206,32 +211,29 @@ function startTimer(time) {
   counter = setInterval(timer, 1000);
 
   function timer() {
-    timeCount.textContent = time; //changing the value of timeCount with time value
-    time--; //decrement the time value
+    timeCount.textContent = time;
+    time--;
     if (time < 9) {
-      //if timer is less than 9
       let addZero = timeCount.textContent;
       timeCount.textContent = "0" + addZero; //add a 0 before time value
     }
 
     if (time < 0) {
-      //if timer is less than 0
-      clearInterval(counter); //clear counter
-      timeText.textContent = "Time Off"; //change the time text to time off
-      const allOptions = option_list.children.length; //getting all option items
-      let correcAns = questions[que_count].answer; //getting correct answer from array
+      clearInterval(counter);
+      timeText.textContent = "Time Off";
+      const allOptions = option_list.children.length;
+      let correcAns = questions[que_count].answer;
       for (i = 0; i < allOptions; i++) {
         if (option_list.children[i].textContent == correcAns) {
-          //if there is an option which is matched to an array answer
-          option_list.children[i].setAttribute("class", "option correct"); //adding green color to matched option
-          option_list.children[i].insertAdjacentHTML("beforeend", tickIconTag); //adding tick icon to matched option
+          option_list.children[i].setAttribute("class", "option correct");
+          option_list.children[i].insertAdjacentHTML("beforeend", tickIconTag);
           console.log("Time Off: Auto selected correct answer.");
         }
       }
       for (i = 0; i < allOptions; i++) {
-        option_list.children[i].classList.add("disabled"); //once user select an option then disabled all options
+        option_list.children[i].classList.add("disabled");
       }
-      next_btn.classList.add("show"); //show the next button if user selected any option
+      next_btn.classList.add("show");
     }
   }
 }
@@ -239,11 +241,10 @@ function startTimer(time) {
 function startTimerLine(time) {
   counterLine = setInterval(timer, 29);
   function timer() {
-    time += 1; //upgrading time value with 1
-    time_line.style.width = time + "px"; //increasing width of time_line with px by time value
+    time += 1;
+    time_line.style.width = time + "px";
     if (time > 549) {
-      //if time value is greater than 549
-      clearInterval(counterLine); //clear counterLine
+      clearInterval(counterLine);
     }
   }
 }
@@ -257,7 +258,7 @@ function queCounter(index) {
     questions.length +
     "</p> Questions</span>";
   bottom_ques_counter.innerHTML = totalQueCounTag; //adding new span tag inside bottom_ques_counter
-} // creating an array and passing the number, questions, options, and answers
+}
 
 let questions = [
   {
@@ -277,84 +278,76 @@ let questions = [
       "Cascading Style Sheet",
     ],
   },
-  // {
-  //   question: 3,
-  //   question: "What does PHP stand for?",
-  //   answer: "Hypertext Preprocessor",
-  //   options: [
-  //     "Hypertext Preprocessor",
-  //     "Hypertext Programming",
-  //     "Hypertext Preprogramming",
-  //     "Hometext Preprocessor",
-  //   ],
-  // },
-  // {
-  //   question: 4,
-  //   question:
-  //     "A condition in an IF/ ELSE statement is enclosed within _______ ?",
-  //   answer: "Parenthesis",
-  //   options: ["Quotes", "Parenthesis", "Curly Brackets", "Square Brackets"],
-  // },
-  // {
-  //   question: 5,
-  //   question: "What does SQL stand for?",
-  //   answer: "Structured Query Language",
-  //   options: [
-  //     "Stylish Question Language",
-  //     "Stylesheet Query Language",
-  //     "Statement Question Language",
-  //     "Structured Query Language",
-  //   ],
-  // },
-  // {
-  //   question: 6,
-  //   question: "What does XML stand for?",
-  //   answer: "eXtensible Markup Language",
-  //   options: [
-  //     "eXtensible Markup Language",
-  //     "eXecutable Multiple Language",
-  //     "eXTra Multi-Program Language",
-  //     "eXamine Multiple Language",
-  //   ],
-  // },
-  // {
-  //   question: 7,
-  //   question: "Arrays in JavaScript can be used to store ______ ?",
-  //   answer: "",
-  //   options: ["", "", "", ""],
-  // },
-  // {
-  //   question: 8,
-  //   question:
-  //     "String Values can be enclosed in _______ when being assigned to ?",
-  //   answer: "Hyper Text Markup Language",
-  //   options: [
-  //     "Hyper Text Preprocessor",
-  //     "Hyper Text Markup Language",
-  //     "Hyper Text Multiple Language",
-  //     "Hyper Tool Multi Language",
-  //   ],
-  // },
-  // {
-  //   question: 9,
-  //   question: "What does HTML stand for?",
-  //   answer: "Hyper Text Markup Language",
-  //   options: [
-  //     "Hyper Text Preprocessor",
-  //     "Hyper Text Markup Language",
-  //     "Hyper Text Multiple Language",
-  //     "Hyper Tool Multi Language",
-  //   ],
-  // },
-  // {
-  //   question: 10,
-  //   question: "What does HTML stand for?",
-  //   answer: "Hyper Text Markup Language",
-  //   options: [
-  //     "Hyper Text Preprocessor",
-  //     "Hyper Text Markup Language",
-  //     "Hyper Text Multiple Language",
-  //     "Hyper Tool Multi Language",
-  //   ],
-  // },
+  {
+    question: 3,
+    question: "What does PHP stand for?",
+    answer: "Hypertext Preprocessor",
+    options: [
+      "Hypertext Preprocessor",
+      "Hypertext Programming",
+      "Hypertext Preprogramming",
+      "Hometext Preprocessor",
+    ],
+  },
+  {
+    question: 4,
+    question:
+      "A condition in an IF/ ELSE statement is enclosed within _______ ?",
+    answer: "Parenthesis",
+    options: ["Quotes", "Parenthesis", "Curly Brackets", "Square Brackets"],
+  },
+  {
+    question: 5,
+    question:
+      "What is the correct sequence of HTML tags for starting a webpage?",
+    answer: "HTML, Head, Title",
+    options: [
+      "Head, Title, HTML",
+      "Title, Head, HTML",
+      "HTML, Head, Title",
+      "All of these",
+    ],
+  },
+  {
+    question: 6,
+    question: "What does XML stand for?",
+    answer: "eXtensible Markup Language",
+    options: [
+      "eXtensible Markup Language",
+      "eXecutable Multiple Language",
+      "eXTra Multi-Program Language",
+      "eXamine Multiple Language",
+    ],
+  },
+  {
+    question: 7,
+    question: "Choose the correct HTML tag for the largest heading?",
+    answer: "Head",
+    options: ["Heading", "H1", "Head", "H5"],
+  },
+  {
+    question: 8,
+    question: "What is CSS?",
+    answer: "All of the above",
+    options: [
+      "CSS is designed to separate the presentation and content, including layout, colors, and fonts",
+      "CSS is the language used to style the HTML documents",
+      "CSS is a style sheet language",
+      "All of the above",
+    ],
+  },
+  {
+    question: 9,
+    question:
+      "Which of the following CSS selectors are used to specify a group of elements??",
+    answer: "Class",
+    options: ["Class", "Tag", "ID", "Class and Tag"],
+  },
+  {
+    question: 10,
+    question:
+      "Which of the following CSS framework is used to create a responsive design?",
+    answer: "Bootstrap",
+    options: ["rails", "Django", "Bootstrap", "Larawell"],
+  },
 ];

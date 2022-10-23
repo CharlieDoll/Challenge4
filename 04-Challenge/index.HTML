@@ -16,6 +16,8 @@
   </head>
 
   <body>
+    <h1>Interview Questionnaire</h1>
+
     <div class="start_btn"><button>Start Questionnaire</button></div>
     <!-- Info Box -->
     <div class="info_box">
@@ -85,8 +87,16 @@
       <div class="buttons">
         <button class="restart">Replay Quiz</button>
         <button class="quit">Quit Quiz</button>
+        <label for="applicantName">Name (Full Name):</label>
+       <input type="text" id="applicantName" name="applicantNme" required
+       minlength="4" maxlength="30" size="10">
+       <div>
+        <input type="submit" value="submit" />
       </div>
     </div>
+    
+    </div>
+       </div>
     <script src="./Assets/script.js"></script>
   </body>
 </html>
