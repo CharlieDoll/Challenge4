@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="./Assets/style.css" />
+
+    <title>Interview Questionnaire</title>
+    <!-- Noto Serif Teluga -->
+    <link<link<link
+      href="https://fonts.googleapis.com/css?family=Noto+Serif+Telugu:100,200,300,regular,500,600,700,800,900"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <h1>Interview Questionnaire</h1>
+
+    <div class="start_btn"><button>Start Questionnaire</button></div>
+    <!-- Info Box -->
+    <div class="info_box">
+      <div class="info-title"><span>Test Instructions</span></div>
+      <div class="info-list">
+        <div class="info">
+          1. You will have <span>75 seconds</span> to answer all of the
+          questions.
+        </div>
+        <div class="info">
+          2. Once an answer is chosen, it cannot be undone.
+        </div>
+        <div class="info">
+          3. You will lose 5 seconds off of the timer for each incorrect answer.
+        </div>
+        <div class="info">
+          4. You must pass through the entire quiz to exit the Questionnaire.
+        </div>
+        <div class="info">
+          5. You will recieve 1 point for each correct answer.
+        </div>
+        <div class="info">
+          6. You must attain a 75% average to reach the next stage of the
+          interview process.
+        </div>
+      </div>
+      <div class="buttons">
+        <button class="quit">Exit Questionnaire</button>
+        <button class="restart">Continue</button>
+      </div>
+    </div>
+    <!-- Questionnaire Box -->
+    <div class="quiz_box">
+      <header>
+        <div class="title">Interview Questionnaire</div>
+        <div class="timer">
+          <div class="time_left_txt">Time Left</div>
+          <div class="timer_sec">75</div>
+        </div>
+        <div class="time_line"></div>
+      </header>
+      <section>
+        <div class="que_text">
+          <!-- questions from JavaScript -->
+        </div>
+        <div class="option_list">
+          <!-- options from JavaScript -->
+        </div>
+      </section>
+      <!-- footer of Quiz Box -->
+      <footer>
+        <div class="total_que">
+          <!-- Question Numbers - JavaScript -->
+        </div>
+        <button class="next_btn">Next Question</button>
+      </footer>
+    </div>
+    <!-- Result Box -->
+    <div class="result_box">
+      <div class="icon">
+        <i class="fas fa-crown"></i>
+      </div>
+      <div class="complete_text">Finished!</div>
+      <div class="score_text">
+        <!-- Score Result - JavaScript -->
+      </div>
+      <div class="buttons">
+        <button class="restart">Replay Quiz</button>
+        <button class="quit">Quit Quiz</button>
+        <!-- <label for="applicantName">Name (Full Name):</label> -->
+       <form id="submitForm">
+        <label for="submit" class="standard-label">
+          Name
+          <input name="applicantName" id="name" type="text">
+           Total Score
+           <input score="score" id="score" type="text">
+         <input id="submit-app" type="submit" name="submit" score="submit" onclick="logValues()">
+      </div>
+      </div>
+    </div>
+    </div>
+  </form>
+    <script src="./Assets/script.js"></script>
+  </body>
+</html>
