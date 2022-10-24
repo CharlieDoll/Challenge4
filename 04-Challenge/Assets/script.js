@@ -329,9 +329,6 @@ let questions = [
     options: ["rails", "Django", "Bootstrap", "Larawell"],
   },
 ];
-for (let index = 0; index < array.length; index++) {
-  const element = array[index];
-  function logValues() {
-    console.log($("submitForm").serializeArray());
-  }
+function logValues() {
+  console.log($("submitForm").serializeArray());
 }
