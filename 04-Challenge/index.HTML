@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./Assets/style.css" />
 
     <title>Interview Questionnaire</title>
-    <!-- FontPoppins -->
+    <!-- Noto Serif Teluga -->
     <link<link<link
       href="https://fonts.googleapis.com/css?family=Noto+Serif+Telugu:100,200,300,regular,500,600,700,800,900"
       rel="stylesheet"
@@ -21,7 +21,7 @@
     <div class="start_btn"><button>Start Questionnaire</button></div>
     <!-- Info Box -->
     <div class="info_box">
-      <div class="info-title"><span>Instructions</span></div>
+      <div class="info-title"><span>Test Instructions</span></div>
       <div class="info-list">
         <div class="info">
           1. You will have <span>75 seconds</span> to answer all of the
@@ -49,7 +49,7 @@
         <button class="restart">Continue</button>
       </div>
     </div>
-    <!-- Quiz Box -->
+    <!-- Questionnaire Box -->
     <div class="quiz_box">
       <header>
         <div class="title">Interview Questionnaire</div>
@@ -87,16 +87,19 @@
       <div class="buttons">
         <button class="restart">Replay Quiz</button>
         <button class="quit">Quit Quiz</button>
-        <label for="applicantName">Name (Full Name):</label>
-       <input type="text" id="applicantName" name="applicantNme" required
-       minlength="4" maxlength="30" size="10">
-       <div>
-        <input type="submit" value="submit" />
+        <!-- <label for="applicantName">Name (Full Name):</label> -->
+       <form id="submitForm">
+        <label for="submit" class="standard-label">
+          Name
+          <input name="applicantName" id="name" type="text">
+           Total Score
+           <input score="score" id="score" type="text">
+         <input id="submit-app" type="submit" name="submit" score="submit" onclick="logValues()">
+      </div>
       </div>
     </div>
-    
     </div>
-       </div>
+  </form>
     <script src="./Assets/script.js"></script>
   </body>
 </html>

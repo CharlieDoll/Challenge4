@@ -10,8 +10,8 @@ const time_line = document.querySelector("header .time_line");
 const timeText = document.querySelector(".timer .time_left_txt");
 const timeCount = document.querySelector(".timer .timer_sec");
 var ApplicantName = document.getElementById("App_name");
-var submitButton = document.getElementById("submit-Button");
-var score = document.getElementById("questionnaire_score");
+var submitForm = info_box.querySelector("submit-form");
+var score = document.getElementById("score");
 let totalTimeValue = 75;
 
 // start button
@@ -27,14 +27,14 @@ exit_btn.onclick = () => {
 
 // continue button
 continue_btn.onclick = () => {
-  info_box.classList.remove("activeInfo"); //hide info box
-  quiz_box.classList.add("activeQuiz"); //show quiz box
-  showQuetions(0); //calling showQestions function
-  queCounter(1); //passing 1 parameter to queCounter
-  startTimerLine(0); //calling startTimerLine function
+  info_box.classList.remove("activeInfo");
+  quiz_box.classList.add("activeQuiz");
+  showQuetions(0);
+  queCounter(1);
+  startTimerLine(0);
 };
 
-let timeValue = 15;
+let timeValue = 75;
 let que_count = 0;
 let que_numb = 1;
 let userScore = 0;
@@ -47,26 +47,25 @@ const quit_quiz = result_box.querySelector(".buttons .quit");
 
 // restart button
 restart_quiz.onclick = () => {
-  quiz_box.classList.add("activeQuiz"); //show quiz box
-  result_box.classList.remove("activeResult"); //hide result box
+  quiz_box.classList.add("activeQuiz");
+  result_box.classList.remove("activeResult");
   timeValue = 75;
   que_count = 0;
   que_numb = 1;
   userScore = 0;
   widthValue = 0;
-  showQuetions(que_count); //calling showQestions function
-  queCounter(que_numb); //passing que_numb value to queCounter
-  clearInterval(counter); //clear counter
-  clearInterval(counterLine); //clear counterLine
-  //startTimer(timeValue); //calling startTimer function
-  startTimerLine(widthValue); //calling startTimerLine function
-  timeText.textContent = "Time Left"; //change the text of timeText to Time Left
-  next_btn.classList.remove("show"); //hide the next button
+  showQuetions(que_count);
+  queCounter(que_numb);
+  clearInterval(counter);
+  clearInterval(counterLine);
+  startTimerLine(widthValue);
+  timeText.textContent = "Time Left";
+  next_btn.classList.remove("show");
 };
 
 // quit button
 quit_quiz.onclick = () => {
-  window.location.reload(); //reload the current window
+  window.location.reload();
 };
 
 const next_btn = document.querySelector("footer .next_btn");
@@ -75,36 +74,15 @@ const bottom_ques_counter = document.querySelector("footer .total_que");
 // Next button
 next_btn.onclick = () => {
   if (que_count < questions.length - 1) {
-    que_count++; //increment the que_count value
-    que_numb++; //increment the que_numb value
-    showQuetions(que_count); //calling showQestions function
-    queCounter(que_numb); //passing que_numb value to queCounter
-    startTimerLine(widthValue); //calling startTimerLine function
-    timeText.textContent = "Time Left"; //change the timeText to Time Left
-    next_btn.classList.remove("show"); //hide the next button
+    que_count++;
+    que_numb++;
+    showQuetions(que_count);
+    queCounter(que_numb);
+    startTimerLine(widthValue);
+    timeText.textContent = "Time Left";
+    next_btn.classList.remove("show");
   } else {
-    showResult(); //calling showResult function
-  }
-};
-// submit button
-submitButton.onclick = () => {
-  if (applicantName < score.length - 1) {
-    score++;
-    function savescore(score) {
-      var score = prompt("Enter name:");
-      console.log("applicantName + score");
-      button.addEventListener("click", savescore, applicantName);
-
-      // 1. Add to list
-      score.push(questionnaire_score);
-
-      // 4. Save to local storage
-      localStorage.setItem(
-        applicantName,
-        questionnaire_score,
-        JSON.stringify(any)
-      );
-    }
+    showResult();
   }
 };
 // Q's array
@@ -215,7 +193,7 @@ function startTimer(time) {
     time--;
     if (time < 9) {
       let addZero = timeCount.textContent;
-      timeCount.textContent = "0" + addZero; //add a 0 before time value
+      timeCount.textContent = "0" + addZero;
     }
 
     if (time < 0) {
@@ -250,14 +228,14 @@ function startTimerLine(time) {
 }
 
 function queCounter(index) {
-  //creating a new span tag and passing the question number and total question
+  //span tag
   let totalQueCounTag =
     "<span><p>" +
     index +
     "</p> of <p>" +
     questions.length +
     "</p> Questions</span>";
-  bottom_ques_counter.innerHTML = totalQueCounTag; //adding new span tag inside bottom_ques_counter
+  bottom_ques_counter.innerHTML = totalQueCounTag;
 }
 
 let questions = [
@@ -351,3 +329,6 @@ let questions = [
     options: ["rails", "Django", "Bootstrap", "Larawell"],
   },
 ];
+function logValues() {
+  console.log($("submitForm").serializeArray());
+}
