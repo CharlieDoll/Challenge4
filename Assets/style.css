@@ -1,15 +1,15 @@
-@import url('<link href="https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,,800,800italic,900,900italic" rel="stylesheet" />');
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Noto Serif Teluga', Noto Serif Teluga;
 }
-body{
+
+body {
     background: #cdf4f9;
 }
 
-body h1{
+body h1 {
     background: white;
     color: black;
     box-sizing: border-box;
@@ -19,30 +19,33 @@ body h1{
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
-.selection{
+.selection {
     color: rgb(12, 11, 11);
     background: #cdf4f9;
 }
+
 .start_btn,
 .info_box,
 .quiz_box,
-.result_box{
+.result_box {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 
-                0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+        0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+
 .info_box.activeInfo,
 .quiz_box.activeQuiz,
-.result_box.activeResult{
+.result_box.activeResult {
     opacity: 1;
     z-index: 5;
     pointer-events: auto;
     transform: translate(-50%, -50%) scale(1);
 }
-.start_btn button{
+
+.start_btn button {
     font-size: 25px;
     font-weight: 500;
     color: #050606;
@@ -53,7 +56,8 @@ body h1{
     background: #fff;
     cursor: pointer;
 }
-.info_box{
+
+.info_box {
     width: 540px;
     background: #fff;
     border-radius: 5px;
@@ -62,7 +66,8 @@ body h1{
     pointer-events: none;
     transition: all 0.3s ease;
 }
-.info_box .info-title{
+
+.info_box .info-title {
     height: 60px;
     width: 100%;
     border-bottom: 1px solid lightgrey;
@@ -73,18 +78,22 @@ body h1{
     font-size: 20px;
     font-weight: 600;
 }
-.info_box .info-list{
+
+.info_box .info-list {
     padding: 15px 30px;
 }
-.info_box .info-list .info{
+
+.info_box .info-list .info {
     margin: 5px 0;
     font-size: 17px;
 }
-.info_box .info-list .info span{
+
+.info_box .info-list .info span {
     font-weight: 600;
     color: #0d0a0f;
 }
-.info_box .buttons{
+
+.info_box .buttons {
     height: 60px;
     display: flex;
     align-items: center;
@@ -92,7 +101,8 @@ body h1{
     padding: 0 30px;
     border-top: 1px solid rgb(18, 17, 17);
 }
-.info_box .buttons button{
+
+.info_box .buttons button {
     margin: 0 5px;
     height: 40px;
     width: 100px;
@@ -105,7 +115,8 @@ body h1{
     border: 1px solid #070707;
     transition: all 0.3s ease;
 }
-.quiz_box{
+
+.quiz_box {
     width: 550px;
     background: rgb(19, 18, 18);
     border-radius: 5px;
@@ -114,7 +125,8 @@ body h1{
     pointer-events: none;
     transition: all 0.3s ease;
 }
-.quiz_box header{
+
+.quiz_box header {
     position: relative;
     z-index: 2;
     height: 70px;
@@ -124,13 +136,15 @@ body h1{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    box-shadow: 0px 3px 5px 1px rgba(0,0,0,0.1);
+    box-shadow: 0px 3px 5px 1px rgba(0, 0, 0, 0.1);
 }
-.quiz_box header .title{
+
+.quiz_box header .title {
     font-size: 20px;
     font-weight: 600;
 }
-.quiz_box header .timer{
+
+.quiz_box header .timer {
     color: rgb(249, 242, 242);
     background: #f5f6f8;
     border: 1px solid #0c0c0d;
@@ -142,12 +156,14 @@ body h1{
     justify-content: space-between;
     width: 145px;
 }
-.quiz_box header .timer .time_left_txt{
+
+.quiz_box header .timer .time_left_txt {
     font-weight: 400;
     font-size: 17px;
     user-select: none;
 }
-.quiz_box header .timer .timer_sec{
+
+.quiz_box header .timer .timer_sec {
     font-size: 18px;
     font-weight: 500;
     height: 30px;
@@ -160,27 +176,32 @@ body h1{
     border: 1px solid #343a40;
     user-select: none;
 }
-.quiz_box header .time_line{
+
+.quiz_box header .time_line {
     position: absolute;
     bottom: 0px;
     left: 0px;
     height: 3px;
     background: #c2c2c2;
 }
-section{
+
+section {
     padding: 25px 30px 20px 30px;
     background: #fff;
 }
-section .que_text{
+
+section .que_text {
     font-size: 25px;
     font-weight: 600;
 }
-section .option_list{
+
+section .option_list {
     padding: 20px 0px;
-    display: block;   
+    display: block;
 }
-section .option_list .option{
-    background:rgb(248, 242, 242)
+
+section .option_list .option {
+    background: rgb(248, 242, 242);
     border: 1px solid #84c5fe;
     border-radius: 5px;
     padding: 8px 15px;
@@ -193,28 +214,33 @@ section .option_list .option{
     justify-content: space-between;
 }
 
-section .option_list .option:last-child{
+section .option_list .option:last-child {
     margin-bottom: 0px;
 }
-section .option_list .option:hover{
+
+section .option_list .option:hover {
     color: #f4f2f5;
     background: #0a0b0b;
     border: 1px solid #b8e9ff;
 }
-section .option_list .option.correct{
+
+section .option_list .option.correct {
     color: #030404;
     background: #12dc2d;
     border: 1px solid #020202;
 }
-section .option_list .option.incorrect{
+
+section .option_list .option.incorrect {
     color: #050404;
     background: #ef0505;
     border: 1px solid #100c0c;
 }
-section .option_list .option.disabled{
+
+section .option_list .option.disabled {
     pointer-events: none;
 }
-section .option_list .option .icon{
+
+section .option_list .option .icon {
     height: 26px;
     width: 26px;
     border: 2px solid transparent;
@@ -225,17 +251,20 @@ section .option_list .option .icon{
     transition: all 0.3s ease;
     line-height: 24px;
 }
-.option_list .option .icon.tick{
+
+.option_list .option .icon.tick {
     color: #b11818;
     border-color: #2b31e2;
     background: #d4edda;
 }
-.option_list .option .icon.cross{
+
+.option_list .option .icon.cross {
     color: #a42834;
     background: #220de4;
     border-color: #2e0144;
 }
-footer{
+
+footer {
     height: 60px;
     padding: 0 30px;
     display: flex;
@@ -243,18 +272,22 @@ footer{
     justify-content: space-between;
     border-top: 1px solid rgb(244, 241, 241);
 }
-footer .total_que span{
+
+footer .total_que span {
     display: flex;
     user-select: none;
 }
-footer .total_que span p{
+
+footer .total_que span p {
     font-weight: 500;
     padding: 0 5px;
 }
-footer .total_que span p:first-child{
+
+footer .total_que span p:first-child {
     padding-left: 0px;
 }
-footer button{
+
+footer button {
     height: 40px;
     padding: 0 13px;
     font-size: 18px;
@@ -272,15 +305,18 @@ footer button{
     transform: scale(0.95);
     transition: all 0.3s ease;
 }
-footer button:hover{
+
+footer button:hover {
     background: #f3f2f6;
 }
-footer button.show{
+
+footer button.show {
     opacity: 1;
     pointer-events: auto;
     transform: scale(1);
 }
-.result_box{
+
+.result_box {
     background: #fff;
     border-radius: 5px;
     display: flex;
@@ -294,30 +330,36 @@ footer button.show{
     pointer-events: none;
     transition: all 0.3s ease;
 }
-.result_box .icon{
+
+.result_box .icon {
     font-size: 100px;
     color: #030304;
     margin-bottom: 10px;
 }
-.result_box .complete_text{
+
+.result_box .complete_text {
     font-size: 20px;
     font-weight: 500;
 }
-.result_box .score_text span{
+
+.result_box .score_text span {
     display: flex;
     margin: 10px 0;
     font-size: 18px;
     font-weight: 500;
 }
-.result_box .score_text span p{
+
+.result_box .score_text span p {
     padding: 0 4px;
     font-weight: 600;
 }
-.result_box .buttons{
+
+.result_box .buttons {
     display: flex;
     margin: 20px 0;
 }
-.result_box .buttons button{
+
+.result_box .buttons button {
     margin: 0 10px;
     height: 50px;
     padding: 0 40px;
@@ -330,25 +372,31 @@ footer button.show{
     border: 1px solid #007bff;
     transition: all 0.3s ease;
 }
-.buttons button.restart{
+
+.buttons button.restart {
     color: rgb(6, 6, 6);
     background: white;
 }
-.buttons button.restart:hover{
+
+.buttons button.restart:hover {
     background: rgb(251, 247, 247);
 }
-.buttons button.quit{
+
+.buttons button.quit {
     color: rgb(4, 3, 3);
     background: #fff;
 }
-.buttons button.quit:hover{
+
+.buttons button.quit:hover {
     color: rgb(7, 6, 6);
     background: white;
 }
+
 label {
     display: block;
     font: 1rem 'Fira Sans', sans-serif;
 }
+
 input,
 label {
     margin: .8rem 0;
